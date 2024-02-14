@@ -1,0 +1,192 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[flushleft]{threeparttable}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\hypersetup{
+colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black,
+}
+\usepackage{natbib}
+\usepackage{yhmath}
+\usepackage{dutchcal}
+\usepackage{titlesec}
+\bibliographystyle{chicago}
+\newcommand{\bib}{references.bib}
+\newcommand\iid{\stackrel{\mathclap{iid}}{\sim}}
+\newcommand\asym{\stackrel{\mathclap{a}}{\sim}}
+\newcommand\convprob{\xrightarrow{p}}
+\newcommand\convdist{\xrightarrow{d}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\text{E}}
+\newcommand{\V}{\text{Var}}
+\newcommand{\Av}{\text{Avar}}
+\newcommand{\se}{\text{se}}
+\newcommand{\corr}{\text{Corr}}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\norm}{\text{Normal}}
+\newcommand{\indep}{\perp \!\!\! \perp}
+
+\begin{document}
+% The tex content below is similar to the given main.tex
+ 
+\title{Problem Set 1}
+\author{Health Economics II\\
+Maghfira Ramadhani}
+\date{\today}
+\maketitle
+
+\section*{1 Logit Demand}
+
+We are given data on over-the-counter (OTC) headache medicine. The data is at the store-week level for four brands and three package sizes. A brand-size pair is a product.
+Consider the utility function for product $j$ in market $t$ for consumer $i$:
+\begin{align*}
+    u_{ijt} &=  X_{jt} \beta  - \alpha p_{jt}+ \xi_{jt} + \varepsilon_{ijt} \\
+    &=\delta_{jt}+\varepsilon_{ijt}.
+\end{align*}
+where $\varepsilon_{ijt}$ is an i.i.d. draw from type I extreme value distribution, $X_{jt}$ is a vector of product characteristics, $p_{jt}$ is the price of product $j$ in market $t$, and $\xi_{jt}$ is an unobserved characteristic of the product.
+\begin{enumerate}
+\item Table \ref{t1:summary} shows summary statistics that provides the mean of each of the following for each brand-
+size pair: market share of sales, unit price, price/50 tab, and wholesale price.
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Summary Statistics}\label{t1:summary}
+\input{./table/summary.tex}
+\end{threeparttable}
+\end{table}
+
+If we assume that $\varepsilon_{ijt}$ is distributed type I extreme value which have the density $f$ and cumulative distribution $F$ as follows
+\begin{align*}
+    f(\varepsilon_{ijt})&=e^{-\varepsilon_{ijt}}e^{e^{-\varepsilon_{ijt}}}\\
+    F(\varepsilon_{ijt})&=e^{-e^{-\varepsilon_{ijt}}}
+\end{align*}
+
+Consequently, the probability that consumer $i$ chooses product $j$ in market $t$ is given by
+\begin{align}
+    \mathcal{s}_{jt}&=\Pr(\delta_{jt}+\varepsilon_{ijt}>\delta_{kt}+\varepsilon_{ikt} \quad \forall k\neq j) \notag\\
+    \Leftrightarrow\mathcal{s}_{jt}&=\Pr(\varepsilon_{ikt}<\varepsilon_{ijt}+\delta_{jt}-\delta_{kt} \quad \forall k\neq j) \notag\\
+    \Leftrightarrow\mathcal{s}_{jt}&=\int \left(\prod_{k\neq j} F(\varepsilon_{ijt}+\delta_{jt}-\delta_{kt})\right)f(\varepsilon_{ijt})d\varepsilon_{ijt} \notag\\
+    \Leftrightarrow\mathcal{s}_{jt}&=\frac{\exp(\delta_{jt})}{\sum_{k}\exp(\delta_{kt})}.\label{e1:ps1}
+\end{align}
+If we assume that the mean utility of the outside good is zero, then the market share of sales for product $j$ in market $t$ is given by
+\begin{align}
+    \mathcal{s}_{0t}&=\frac{1}{\sum_{k}\exp(\delta_{kt})}.\label{e2:ps1}
+\end{align}
+Dividing equation \eqref{e1:ps1} by equation \eqref{e2:ps1} yields
+\begin{align}
+    &\frac{\mathcal{s}_{jt}}{\mathcal{s}_{0t}}=\exp(\delta_{jt})\notag\\
+    &\Leftrightarrow \ln(\mathcal{s}_{jt})-\ln(\mathcal{s}_{0t})= X_{jt} \beta  - \alpha p_{jt}+ \xi_{jt}\notag \\
+    &\Leftrightarrow \ln(\mathcal{s}_{jt})=\ln(\mathcal{s}_{0t}) + X_{jt} \beta  - \alpha p_{jt}+ \xi_{jt}.\label{e3:ps1} 
+\end{align}
+We can estimate equation \eqref{e3:ps1} with log market share of sales as the outcome variable and price and product characteristics as the explanatory variables using OLS, or IV to solve the price endogeneity problem. 
+\item The demand model estimates by OLS using price and promotion as product characteristics is shown in column (1) of Table \ref{t2:OLS}.
+\item The demand model estimates by OLS using price and promotion as product characteristics including product dummies is shown in column (2) of Table \ref{t2:OLS}.
+\item The demand model estimates by OLS using price and promotion as product characteristics, including store-product (the interaction of store and product) dummies is shown in column (3) of Table \ref{t2:OLS}.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Demand model OLS estimates}\label{t2:OLS}
+\input{./table/OLS.tex}
+\end{threeparttable}
+\end{table}
+
+\item The demand estimates using wholesale price as an instrument is shown in column (1) - (3) of Table \ref{t3:IV}.
+\item The demand estimates using Hausman instrument (i.e. the average price of the same product in other
+stores) is shown in column (4) - (6) of Table \ref{t3:IV}.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Demand model IV estimates}\label{t3:IV}
+\input{./table/IV.tex}
+\end{threeparttable}
+\end{table}
+
+\item The IV estimates when instrumenting for price using wholesale price is shown in column (1) - (3) of Table \ref{t3:IV}. The coefficient for prices are practically zero. This is because the wholesale price is not a good instrument for price. I suspect that wholesale price is highly correlated with product price but fail to satisfy the exclusion restriction, this could happen when the store collect the same portion of markup from the price of product sold. The result from using Hausman instrument in column (1) - (3) of Table \ref{t3:IV} show that it is a better instrument for price. The specification in column (6) is the best model in addressing endogeneity issues since it control for unobserved store-product characteristics as well as using a good instrument for price.
+
+\item The own-price elasticities for products $j$ in the market $t$ is given by
+\begin{align*}
+    \frac{\partial\mathcal{s}_{jt}}{\partial p_{jt}}\frac{p_{jt}}{\mathcal{s}_{jt}}=-\alpha p_{jt}(1-\mathcal{s}_{jt}).
+\end{align*}
+So the mean own-price elasticity for each product $j$ is given by
+\begin{align*}
+    \E_t\left[\frac{\partial\mathcal{s}_{jt}}{\partial p_{jt}}\frac{p_{jt}}{\mathcal{s}_{jt}}\right]=-\alpha \frac{1}{T}\sum_{t}p_{jt}(1-\mathcal{s}_{jt}).
+\end{align*}
+The mean own-price elasticity for each product $j$ is shown in Table \ref{t4:elasticity}.
+
+\begin{table}[H]
+\centering
+\caption{Mean own price elasticity for different product across specifications}\label{t4:elasticity}
+\begin{threeparttable}
+\input{./table/elasticity.tex}
+\end{threeparttable}
+\end{table}
+
+\item Let be $\mathcal{J}$ the choice sets of available products. Under the assumptions of the logit model, the expected consumer surplus that an individuals receives
+from getting to choose the OTC headache medicine that maximizes their utility is
+\begin{align*}
+\E[CS_i|j\in \mathcal{J}]&=\frac{1}{\alpha} \E[\max_j (\delta_{jt}+\varepsilon_{ijt})]\\
+&=\frac{1}{\alpha} \ln\left(\sum_{j\in \mathcal{J}}\exp(\delta_{jt})\right)
+\end{align*}
+
+When a product $l$ is not offered in the market, the expected consumer surplus that an individuals receives from getting to choose the OTC headache medicine that maximizes their utility is
+\begin{align*}
+    \E[CS_i|j\in \mathcal{J}\diagdown l]&=\frac{1}{\alpha} \ln\left(\sum_{j\in \mathcal{J}\diagdown l}\exp(\delta_{jt})\right)\\
+    &=\frac{1}{\alpha} \ln\left(\sum_{j\in \mathcal{J}}\exp(\delta_{jt})-\exp{(\delta_{lt})}\right)
+\end{align*}
+
+The change in consumer surplus from removing product $l$ from the choice set is given by
+\begin{align*}
+    \E[\Delta CS_i]&=\frac{1}{\alpha} \ln\left(\frac{\sum_{j\in \mathcal{J}}\exp(\delta_{jt})-\exp{(\delta_{lt})}}{\sum_{j\in \mathcal{J}}\exp{(\delta_{jt})}}\right)\\
+    &=\frac{1}{\alpha}\ln\left(1-\frac{\exp{(\delta_{lt})}}{\sum_{j\in \mathcal{J}}\exp{(\delta_{jt})}}\right)\\
+    &=\frac{1}{\alpha}\ln\left(1-\mathcal{s}_{lt}\right)
+\end{align*}
+The mean change in consumer surplus from removing product $l$ from the choice set is given by
+\begin{align*}
+    \E_t[\Delta CS_i]&=\frac{1}{\alpha} \frac{1}{T}\sum_{t}\ln\left(1-\mathcal{s}_{lt}\right)
+\end{align*}
+
+The mean change in consumer surplus from removing product $l$ is shown in Table \ref{t5:surplus}.
+
+\begin{table}[H]
+\centering
+\caption{Mean change in consumer surplus from removing specific product}\label{t5:surplus}
+\begin{threeparttable}
+\input{./table/surplus.tex}
+\end{threeparttable}
+\end{table}
+
+\end{enumerate}
+
+
+
+\section*{2 Adverse selection and (selection on) moral hazard}
+
+Define each of the following terms and describe the data and identifying variation necessary to estimate their effects in health insurance markets: adverse selection, moral hazard, and selection on moral hazard. What approaches have the papers discussed in class taken to estimate these effects? What have these papers found and concluded?
+
+\subsection*{Adverse selection}
+Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+
+\subsection*{Moral hazard}
+Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+
+\subsection*{Selection on moral hazard}
+Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+
+\end{document}
