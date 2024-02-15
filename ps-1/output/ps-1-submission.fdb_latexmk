@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex ps-1-submission"] 1708028502 "ps-1-submission.aux" "ps-1-submission.bbl" "ps-1-submission" 1708028503 0
+["bibtex ps-1-submission"] 1708028502 "ps-1-submission.aux" "ps-1-submission.bbl" "ps-1-submission" 1708029036 0
   "./references.bib" 1708028498 1054 dc284c9a2c8c8e4784fb90ff692fa137 ""
   "c:/texlive/2023/texmf-dist/bibtex/bst/chicago/chicago.bst" 1695050062 37416 2ae04276c51f11eda70770f4081293b7 ""
-  "ps-1-submission.aux" 1708028503 2333 c77a34e5fc732be58de169530f65b2c6 "pdflatex"
+  "ps-1-submission.aux" 1708029035 2333 c77a34e5fc732be58de169530f65b2c6 "pdflatex"
   (generated)
   "ps-1-submission.bbl"
   "ps-1-submission.blg"
   (rewritten before read)
-["pdflatex"] 1708028502 "c:/Users/mramadhani3/OneDrive - Georgia Institute of Technology/Documents/Spring-24/health-econ-ii/health-ii-ps/ps-1/output/ps-1-submission.tex" "ps-1-submission.pdf" "ps-1-submission" 1708028503 0
-  "c:/Users/mramadhani3/OneDrive - Georgia Institute of Technology/Documents/Spring-24/health-econ-ii/health-ii-ps/ps-1/output/ps-1-submission.tex" 1708028498 12688 2c7d737569f036ec02847f6d4806683f ""
+["pdflatex"] 1708029035 "c:/Users/mramadhani3/OneDrive - Georgia Institute of Technology/Documents/Spring-24/health-econ-ii/health-ii-ps/ps-1/output/ps-1-submission.tex" "ps-1-submission.pdf" "ps-1-submission" 1708029036 0
+  "c:/Users/mramadhani3/OneDrive - Georgia Institute of Technology/Documents/Spring-24/health-econ-ii/health-ii-ps/ps-1/output/ps-1-submission.tex" 1708029034 12906 197e0cca3a63eaa992639b3d39cb9b9f ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1695050119 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695050879 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1695050538 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -139,10 +139,10 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1695053861 4721899 cfa71210c04771cdc920860e90d7431d ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695053975 8183805 dcee8c4f7e22c30bce79f906ee845e70 ""
   "c:/texlive/2023/texmf.cnf" 1695053847 713 e69b156964470283e0530f5060668171 ""
-  "ps-1-submission.aux" 1708028503 2333 c77a34e5fc732be58de169530f65b2c6 "pdflatex"
+  "ps-1-submission.aux" 1708029035 2333 c77a34e5fc732be58de169530f65b2c6 "pdflatex"
   "ps-1-submission.bbl" 1708028502 1090 10baa559222ba6559997a8ae029aa1be "bibtex ps-1-submission"
-  "ps-1-submission.out" 1708028503 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ps-1-submission.tex" 1708028498 12688 2c7d737569f036ec02847f6d4806683f ""
+  "ps-1-submission.out" 1708029035 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ps-1-submission.tex" 1708029034 12906 197e0cca3a63eaa992639b3d39cb9b9f ""
   "table/IV.tex" 1707942266 1231 8acf80a471c717f88198148523dfbf41 ""
   "table/OLS.tex" 1707942265 712 796fc0f9eea632a5bdb0c6fc0db0e35e ""
   "table/elasticity.tex" 1707942266 1659 efa68e4f0d997ca34b1c3ad1f1bca81c ""
