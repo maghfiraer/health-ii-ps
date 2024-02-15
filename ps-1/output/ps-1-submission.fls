@@ -237,6 +237,10 @@ INPUT ./table/surplus.tex
 INPUT ./table/surplus.tex
 INPUT ./table/surplus.tex
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./ps-1-submission.bbl
+INPUT ./ps-1-submission.bbl
+INPUT ps-1-submission.bbl
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ps-1-submission.aux
 INPUT ./ps-1-submission.out
 INPUT ./ps-1-submission.out
@@ -254,6 +258,7 @@ INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

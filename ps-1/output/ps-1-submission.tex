@@ -124,9 +124,9 @@ stores) is shown in column (4) - (6) of Table \ref{t3:IV}.
 \begin{align*}
     \frac{\partial\mathcal{s}_{jt}}{\partial p_{jt}}\frac{p_{jt}}{\mathcal{s}_{jt}}=-\alpha p_{jt}(1-\mathcal{s}_{jt}).
 \end{align*}
-So the mean own-price elasticity for each product $j$ is given by
+From the data, the mean own-price elasticity for each product $j$ is given by
 \begin{align*}
-    \E_t\left[\frac{\partial\mathcal{s}_{jt}}{\partial p_{jt}}\frac{p_{jt}}{\mathcal{s}_{jt}}\right]=-\alpha \frac{1}{T}\sum_{t}p_{jt}(1-\mathcal{s}_{jt}).
+    \left.\frac{\partial\mathcal{s}_{jt}}{\partial p_{jt}}\frac{p_{jt}}{\mathcal{s}_{jt}}\right\vert_t=-\alpha \frac{1}{T}\sum_{t}p_{jt}(1-\mathcal{s}_{jt}).
 \end{align*}
 The mean own-price elasticity for each product $j$ is shown in Table \ref{t4:elasticity}.
 
@@ -157,9 +157,9 @@ The change in consumer surplus from removing product $l$ from the choice set is 
     &=\frac{1}{\alpha}\ln\left(1-\frac{\exp{(\delta_{lt})}}{\sum_{j\in \mathcal{J}}\exp{(\delta_{jt})}}\right)\\
     &=\frac{1}{\alpha}\ln\left(1-\mathcal{s}_{lt}\right)
 \end{align*}
-The mean change in consumer surplus from removing product $l$ from the choice set is given by
+Using the data, the mean change in consumer surplus from removing product $l$ from the choice set is given by
 \begin{align*}
-    \E_t[\Delta CS_i]&=\frac{1}{\alpha} \frac{1}{T}\sum_{t}\ln\left(1-\mathcal{s}_{lt}\right)
+    \Delta CS_i\vert_t&=\frac{1}{\alpha} \frac{1}{T}\sum_{t}\ln\left(1-\mathcal{s}_{lt}\right)
 \end{align*}
 
 The mean change in consumer surplus from removing a specific product from a market is shown in Table \ref{t5:surplus}.
@@ -174,19 +174,29 @@ The mean change in consumer surplus from removing a specific product from a mark
 
 \end{enumerate}
 
-
-
 \section*{2 Adverse selection and (selection on) moral hazard}
 
 Define each of the following terms and describe the data and identifying variation necessary to estimate their effects in health insurance markets: adverse selection, moral hazard, and selection on moral hazard. What approaches have the papers discussed in class taken to estimate these effects? What have these papers found and concluded?
 
 \subsection*{Adverse selection}
-Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+Adverse selection happens when willingness to pay is positively correlated. The source of asymetric information because the insurance company do not observe the individual health status. Under this condition, individual who have the highest willingness to pay are individual with the highest expected cost and consequently the average cost is always higher than the marginal cost causing underinsurance. 
+
+\cite{einav2010estimating} use the data on health insurance options, choices, and medical insurance claims of Alcoa, Inc in 2004 in which they focused on subsample of 3,779 employes who chose one of the two modal insurance plans, contracts $H$ and $L$. They use price variation in which due to Alcoa's organization structure, employees doing similar jobs are exposed to different the price of insurance for the same sets of coverage options across different section of the company. Using this variation, they estimate the marginal cost and demand curve, and find that the marginal cost is increasing in price (decreasing in quantity) which is consistent with adverse selection.
 
 \subsection*{Moral hazard}
-Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+Under moral hazard, individual who choose more comprehensive coverage have less incentive to reduce claim probability, i.e. being more risky. The source of asymetric information is due to the change in behaviour of the individual after the insurance is purchased. 
+
+\cite{einav2010estimating} use the same data and price variation to estimate the effect of moral hazard by computing marginal cost curve for contracts $H$ and $L$. They define moral hazard as the difference in the expected cost of the individual who choose the high coverage and the individual who choose the low coverage. They find that they can not reject the null of no moral hazard.
+
+\cite{brot2017does} use the data from the RAND Health Insurance Experiment (HIE) in which family are randomly enrolled in either free healthcare or healtcare with some cost-sharing up to an OOP maximum. They use the variation in monthly spending between those with and without cost-sharing to estimate the effect of moral hazard. They find that individual respond to both current price and expected future price when choosing care, i.e. individual who already passed their deductible at the end of the year will consume more care compared to the very firs month of the year after.
 
 \subsection*{Selection on moral hazard}
+Selection on moral hazard is when individual selecting insurance coverage based on their underlying health risk/status and their behavior response after coverage.
+
+\cite{einav2013selection} use the data from Alcoa (the same company as in \cite{einav2010estimating}) from 2003 and 2004, in some analysis the data is extended through 2006. The data concain the menu of health insurance options available to each employee, the employee's coverage choices, and detailed claim-level information of the employee (and any covered dependents') utilization and expenditure for the year. It also comtaom information on demographics of employee, union affiliation, whether theey are hourly or salary type employee, age, race, gender, annual earnings, job tenure, number and ages of insuren family members. They exploit the variation in the imposition of new PPO plans from .
+
 Definition, data, identifying variation, and approach to estimate the effect in health insurance markets.
+
+\bibliography{\bib}
 
 \end{document}
